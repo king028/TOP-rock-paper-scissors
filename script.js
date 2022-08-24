@@ -5,31 +5,65 @@ function getComputerChoice () {
 
     return random;
 }
-//console.log(getComputerChoice())
 
-function singleRound (playerSelection, computerSelection) {
 
-    playerSelection = playerSelection.toLowerCase();
+let playerScore = 0;
+let computerScore = 0;
+let draw = 0;
 
-    if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        return'You Win! Rock beats Scissors';
+//this function will decide the winner between player and computer
+function singleRound (playerSelection, computerSelection) {    
+
+    if (playerSelection === computerSelection){
+        draw += 1;
+        return drawMatch;
+    } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+        playerScore += 1;
+        return playerWin;
     } else if (playerSelection == 'rock' && computerSelection == 'paper') {
-        return 'You Lose! Paper beats Rock';
-    } else if (playerSelection == 'rock' && computerSelection == 'rock') {
-        return 'Its a tie! both got Rock';
+        computerScore += 1;
+        return computerWin;
     } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-        return'You Win! Paper beats Rock';
-    } else if (playerSelection == 'paper' && computerSelection == 'paper') {
-        return 'Its a tie! both got Paper';
+        playerScore += 1;
+        return playerWin;
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-        return'You Lose! Scissors beats Paper';
+       computerScore += 1;
+       return computerWin;
     } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-        return'You Win! Scissors beats Paper';
-    } else if (playerSelection == 'scissors' && computerSelection == 'scissors') {
-        return 'Its a tie! both got Scissors';
+        playerScore += 1;
+        return playerWin;
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-        return'You Lose! Rock beats Scissors';
-    }
+        computerScore += 1;
+        return computerWin;
+    };
+
+    
 }
-let playerChoice = prompt('Enter your choice rock paper or scissors: ')
-console.log(singleRound(playerChoice, getComputerChoice()));
+
+
+let playerWin = 'You won';
+let computerWin = 'Computer won';
+let drawMatch = 'It\'s a draw';
+
+
+
+
+//Here we will loop over five rounds of the games and keep the scores
+function game() {
+
+
+    for(let i = 0; i < 5; i++){
+
+        const playerSelection = prompt('Enter your choice rock paper or scissors:').toLowerCase();
+        const computerSelection = getComputerChoice();
+        console.log(singleRound(playerSelection, computerSelection));
+
+        
+    };
+
+    console.log('Player score is: ' + playerScore);
+    console.log('Computer score is: ' + computerScore);
+    console.log('Draws: ' + draw);
+}
+
+game();
