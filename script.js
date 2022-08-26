@@ -69,9 +69,16 @@ function game() {
         }
     };
 
-    alert('Player score is: ' + playerScore);
-    alert('Computer score is: ' + computerScore);
-    alert('Draws: ' + draw);
+    alert('Game over');
+    
+
+    if(playerScore > computerScore){
+        alert('Player wins game with: ' + playerScore + ' points');
+    } else if (computerScore > playerScore){
+        alert('Computer wins the game with: ' + computerScore + ' points');
+    }else {
+        alert('no winner');
+    }
 }
 
 game();
