@@ -8,32 +8,30 @@ function getComputerChoice () {
 
 
 let playerScore = 0;
+//let oldPlayerScore = playerScore;
+
 let computerScore = 0;
+//let oldComputerScore = computerScore;
+
 let draw = 0;
+//let oldDraw = draw;
 
 //this function will decide the winner between player and computer
 function singleRound (playerSelection, computerSelection) {    
 
     if (playerSelection === computerSelection){
-        draw += 1;
         return drawMatch;
     } else if (playerSelection == 'rock' && computerSelection == 'scissors') {
-        playerScore += 1;
         return playerWin;
     } else if (playerSelection == 'rock' && computerSelection == 'paper') {
-        computerScore += 1;
         return computerWin;
     } else if (playerSelection == 'paper' && computerSelection == 'rock') {
-        playerScore += 1;
         return playerWin;
     } else if (playerSelection == 'paper' && computerSelection == 'scissors') {
-       computerScore += 1;
        return computerWin;
     } else if (playerSelection == 'scissors' && computerSelection == 'paper') {
-        playerScore += 1;
         return playerWin;
     } else if (playerSelection == 'scissors' && computerSelection == 'rock') {
-        computerScore += 1;
         return computerWin;
     };
 
@@ -41,7 +39,7 @@ function singleRound (playerSelection, computerSelection) {
 }
 
 
-let playerWin = 'You won';
+let playerWin = 'player won';
 let computerWin = 'Computer won';
 let drawMatch = 'It\'s a draw';
 
@@ -56,14 +54,24 @@ function game() {
 
         const playerSelection = prompt('Enter your choice rock paper or scissors:').toLowerCase();
         const computerSelection = getComputerChoice();
-        console.log(singleRound(playerSelection, computerSelection));
+        let winner = singleRound(playerSelection, computerSelection);
+        console.log(winner);
 
-        
+        if(winner == playerWin){
+            playerScore += 1;
+            alert('player wins this round');
+        }else if (winner == computerWin){
+            computerScore += 1;
+            alert('Computer wins this round');
+        }else if(winner == drawMatch){
+            draw += 1;
+            alert('This round is a draw');
+        }
     };
 
-    console.log('Player score is: ' + playerScore);
-    console.log('Computer score is: ' + computerScore);
-    console.log('Draws: ' + draw);
+    alert('Player score is: ' + playerScore);
+    alert('Computer score is: ' + computerScore);
+    alert('Draws: ' + draw);
 }
 
 game();
