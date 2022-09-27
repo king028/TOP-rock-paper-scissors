@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*html{
+    height: 200px;
+    width: 400px;
+    background-image: url('https://is2-ssl.mzstatic.com/image/thumb/Purple125/v4/1f/dd/4d/1fdd4dca-949a-9ddc-5749-e908a5dd0268/source/512x512bb.jpg');
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
+}*/
+
+body{
+    background: /*url(https://img.freepik.com/premium-vector/rock-paper-scissors-hand-game-icon-vector-illustration_602177-67.jpg?w=2000)*/url(https://www.playworks.org/colorado/wp-content/uploads/sites/5/2019/09/finalrps-classypage.jpg) no-repeat center center fixed;
+   background-size: 100% 100%;
+   height: 100%;
+   position: absolute;
+   width: 90%;
+}
+
+#section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 300px 200px 300px 400px;
+    padding: 90px 50px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.rockBtn {
+    padding: 10px 25px; 
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #69be9f;
+}
+
+.paperBtn {
+    padding: 10px 25px; 
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #ebadc2;
+}
+
+.scissorsBtn {
+    padding: 10px 25px; 
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #e99f62;
+}
+
+#container {
+    margin: 10px 0px 30px;;
+}
+
+#displayDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pScore, .cScore, .dScore {
+  font-size: 25px;
+  font-weight: bold; 
+  color: yellow; 
+}
+
+p{
+    margin-top: 10px;
+    font-size: 20px;
+    color: yellow;
+}
+
+
+.player-won, .computer-won{
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.player-won{
+    color: #00E13C;
+}
+
+.computer-won{
+    color: rgb(228, 0, 0);
+}
+
+.play-Again{
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: blue;
+    border-radius: 8px;
+    border: none;
+    margin-top: 20px;
+}

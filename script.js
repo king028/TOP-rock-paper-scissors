@@ -1,38 +1,47 @@
 const div = document.createElement('div'); // created a div to the buttons inside it
 div.id = 'container';
-document.body.appendChild(div);
+section.appendChild(div);
 
 const rock = document.createElement('button');
-rock.addEventListener('click', () => {
+rock.addEventListener('click', (e) => {
+    if(playerScore === 5 || computerScore === 5){
+        e.preventDefault();
+    }else{
     const playerSelection = 'rock';
     const computerSelection = getComputerChoice();
     singleRound(playerSelection, computerSelection);
     scoreTracker(playerScore, computerScore, draw);
-    pickWinner(playerScore, computerScore);
+    pickWinner(playerScore, computerScore);}
 });
 rock.classList.add('rockBtn');
 rock.textContent = 'Rock';
 div.appendChild(rock);
 
 const paper = document.createElement('button');
-paper.addEventListener('click',() => {
+paper.addEventListener('click',(e) => {
+    if(playerScore === 5 || computerScore === 5){
+        e.preventDefault();
+    }else{
     const playerSelection = 'paper';
     const computerSelection = getComputerChoice();
     singleRound(playerSelection, computerSelection);
     scoreTracker(playerScore, computerScore, draw);
-    pickWinner(playerScore, computerScore);
+    pickWinner(playerScore, computerScore)};
 });
 paper.classList.add('paperBtn');
 paper.textContent = 'Paper';
 div.appendChild(paper);
 
 const scissors = document.createElement('button');
-scissors.addEventListener('click', () => {
+scissors.addEventListener('click', (e) => {
+    if(playerScore === 5 || computerScore === 5){
+        e.preventDefault();
+    }else{
     const playerSelection = 'scissors';
     const computerSelection = getComputerChoice();
     singleRound(playerSelection, computerSelection);
     scoreTracker(playerScore, computerScore, draw);
-    pickWinner(playerScore, computerScore);
+    pickWinner(playerScore, computerScore)};
 });
 scissors.classList.add('scissorsBtn');
 scissors.textContent = 'Scissors';
@@ -41,7 +50,7 @@ div.appendChild(scissors);
 
 const displayDiv = document.createElement('div');
 displayDiv.id = 'displayDiv';
-document.body.appendChild(displayDiv);
+section.appendChild(displayDiv);
 
 const p = document.createElement('p');
 
@@ -53,6 +62,13 @@ const computerSc = document.createElement('span');
 const DrawR = document.createElement('span');
 
 const h2 = document.createElement('h2');
+
+const refresh = document.createElement('button');
+refresh.addEventListener('click', () => {
+    window.location.reload();
+})
+refresh.classList.add('play-Again');
+refresh.textContent = 'Play Again';
 
 
 
@@ -103,10 +119,13 @@ if(playerScore === 5){
     h2.classList.add('player-won');
     h2.innerText = `Congratulations, You Won! ${playerScore} to ${computerScore}`;
     displayDiv.appendChild(h2);
+    displayDiv.appendChild(refresh);
 } else if(computerScore === 5){
     h2.classList.add('computer-won');
     h2.innerText = `Too bad you lost ${playerScore} to ${computerScore}`;
     displayDiv.appendChild(h2);
+   displayDiv.appendChild(refresh);
+    
 }
 
 }
@@ -120,7 +139,7 @@ const scoreTracker = (playerScore, computerScore, draw) => { // keeping track of
     computerSc.innerText = ` Computer score: ${computerScore}`;
     score.appendChild(computerSc);
 
-    DrawR.classList.add('pScore');
+    DrawR.classList.add('dScore');
     DrawR.innerText = ` Draws: ${draw}`;
     score.appendChild(DrawR);
 }
